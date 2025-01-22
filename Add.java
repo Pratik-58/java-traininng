@@ -10,6 +10,7 @@ public class Add{
         int b= sc.nextInt();
         System.out.println(a+b);
         System.out.println(a-b);
+        System.out.println(a*d);
 
         sc.close();
 
