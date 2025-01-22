@@ -21,5 +21,6 @@ public class Per{
     
         float percentage = (sub1+sub2+sub3+sub4+sub5)/5;
         System.out.println("percentage of student is : "+percentage);  
+        sc.close();
     }    
 }
