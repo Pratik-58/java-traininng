@@ -10,7 +10,8 @@ interface XYZ {
     }
     
 }
-public class InnerABC implements ABC,XYZ {
+//making multiple iheritance
+public class interdefault implements ABC,XYZ {
     public void m1(){
         XYZ.super.m1();
         ABC.super.m1();
