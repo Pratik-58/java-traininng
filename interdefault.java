@@ -20,7 +20,7 @@ public class interdefault implements ABC,XYZ {
         System.out.println("it is abstract method of interface XYZ");
     }
     public static void main(String[] args) {
-        InnerABC i = new InnerABC();
+        interdefault i = new interdefault();
         i.m1();
         i.m2();
     }
