@@ -10,7 +10,7 @@ public class B extends A{
     }
 }
 
-public class overriding {
+public class Overriding {
     public static void main(String[] args) {
         A.m1();
         B.m1();
