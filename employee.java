@@ -1,104 +1,110 @@
-import java.util.*;
-
-public class employee
-{
-
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+// import java.util.List;
+class Employee {
     int id;
-    String name;
-    int salary;
-    department department;
+    String emp_name;
+    double salary;
+    Department department;
 
-        // Constructor
-        public employee (int id, String name, int salary, department department) 
-        {
-            this.id = id;
-            this.name = name;
-            this.salary = salary;
-            this.department = department;
-        }
-        public int getId() {
-            return id;
-        }
-        
-        public void setId(int id) {
-            this.id = id;
-        }
-        public String getName() {
-            
-            return name;
-        }
-    
-        public void setName(String name) {
-            this.name = name;
-        }
-    
-        public int getSalary() {
-            return salary;
-        }
-    
-        public void setSalary(int salary) {
-            this.salary = salary;
-        }
-    
-        public department getDepartment() {
-            return department;
-        }
-    
-        public void setDepartment(department department) {
-            this.department = department;
-        }
+    Employee(Department department){
+        this.department = department;
     }
-    
-class department
-{
+
+    public void setEmployee(int id, String emp_name, double salary, Department department) {
+        this.id = id;
+        this.emp_name = emp_name;
+        this.salary = salary;
+        this.department = department;
+    }
+
+    public void getEmployee(){
+        System.out.println("Employee ID: " + id);
+        System.out.println("Employee Name: " + emp_name);
+        System.out.println("Employee Salary: " + salary);
+        System.out.println("Employee Department: " + department.dept_name);
+        System.out.println("\n");
+    }
+}
+
+class Department{
     int dept_id;
     int emp_id;
     String dept_name;
 
-    public department(int dept, int emp_id, String dept_name)
-    {
+    Department(int dept_id,int emp_id,String dept_name){
+        this.dept_id = dept_id;
+        this.emp_id = emp_id;
+        this.dept_name = dept_name;
+    }
+    public void setDepartment(int dept_id,int emp_id,String dept_name) {
         this.dept_id = dept_id;
         this.emp_id = emp_id;
         this.dept_name = dept_name;
     }
 
-    public int getDept_id() {
-        return dept_id;
-    }   
-
-    public void setDept_id(int dept_id) {
-        this.dept_id = dept_id;
+    public void getDepartment(){
+        System.out.println("Department ID: " + dept_id);
+        System.out.println("Employee ID: " + emp_id);
+        System.out.println("Employee Department: " + dept_name);
+        System.out.println("\n");
     }
-
-    public int getEmp_id() {
-        return emp_id;
-    }
-
-    public void setEmp_id(int emp_id) {
-        this.emp_id = emp_id;
-    }   
-
-    public String getDept_name()
-    {
-        return dept_name;
-    }
-    public void setDept_name(String dept_name)
-    {
-        this.dept_name = dept_name;
-    }   
 }
 
-class main
-{
-    public static void main(String[] args)
-    {
-        List<employee> list = new ArrayList<employee>();
-        list.add(new employee(1, "John", 1000, new department(1, 1, "HR")));
-        
-        List<employee> list1 = new ArrayList<employee>();
-        list1.add(new employee(2, "Smith", 2000, new department(2, 2, "IT")));
 
-        List<employee> list2 = new ArrayList<employee>();
-        list2.add(new employee(3, "Doe", 3000, new department(3, 3, "Finance")));
+
+class JAamkaam{
+    public static void main(String[] args){
+        ArrayList<Employee> emp = new ArrayList<>();
+        ArrayList<Department> dept = new ArrayList<>();
+
+        Department d = new Department(0,1,"QA");
+        Department d1 = new Department(0,1,"finance");
+        Department d2 = new Department(0,1,"marketing");
+        Department d3 = new Department(0,1,"HR");
+        Department d4 = new Department(0,1,"Software");
+        Department d5 = new Department(0,1,"QC");
+
+        // Department d = new Department(0,1,"cs");
+        Employee e = new Employee(d);
+        Employee e1 = new Employee(d);
+        Employee e2 = new Employee(d);
+        Employee e3 = new Employee(d);
+        Employee e4 = new Employee(d);
+        Employee e5 = new Employee(d);
+
+        
+        // emp.put(e);
+
+        System.out.println("Employee Details");
+        e.setEmployee(1,"Parth",1000,d);
+        e1.setEmployee(1,"Anshul",2000,d);
+        e2.setEmployee(1,"Ajinkya",3000,d);
+        e3.setEmployee(1,"Mohit",4000,d);
+        e4.setEmployee(1,"Ayush",5000,d);
+        System.out.println("Department Details");
+
+        emp.add(e);
+        emp.add(e1);
+        emp.add(e2);
+        emp.add(e3);
+        emp.add(e4);
+        emp.add(e5);
+
+        dept.add(d);
+        dept.add(d1);
+        dept.add(d2);
+        dept.add(d3);
+        dept.add(d4);
+        dept.add(d5);
+
+        emp.forEach((n) -> {
+            n.getEmployee();
+        });
+        dept.forEach((n) -> {
+            n.getDepartment();
+        });
+
+        
     }
 }
